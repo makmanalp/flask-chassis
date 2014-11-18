@@ -1,7 +1,7 @@
-Welcome to Chassis's documentation!
+Welcome to {{cookiecutter.app_name_full}}'s documentation!
 ===================================
 
-Chassis is our new cat storage service. It's a standalone flask service.
+{{cookiecutter.app_name_full}} is our new cat storage service. It's a standalone flask service.
 
 .. toctree::
     :maxdepth: 2

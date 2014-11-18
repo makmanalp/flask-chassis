@@ -5,7 +5,7 @@ Cats
 
 A cat is the animal which is the core of our business model.
 
-The data is stored in the :py:class:`~chassis.models.Cat` model and the reasons
+The data is stored in the :py:class:`~{{cookiecutter.app_name}}.models.Cat` model and the reasons
 for this are discussed in the :ref:`architecture` section.
 
 Examples
@@ -29,11 +29,11 @@ Fetching a cat is easy::
 REST API Reference
 ------------------
 
-.. autoflask:: chassis:create_app({'DEBUG':False})
+.. autoflask:: {{cookiecutter.app_name}}:create_app({'DEBUG':False})
     :undoc-static:
 
 Python API Reference
 --------------------
 
-.. autoclass:: chassis.models.Cat
+.. autoclass:: {{cookiecutter.app_name}}.models.Cat
     :members:

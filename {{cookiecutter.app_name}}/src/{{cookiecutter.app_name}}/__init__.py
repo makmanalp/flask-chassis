@@ -4,13 +4,13 @@ from raven.contrib.flask import Sentry
 from flask_debugtoolbar import DebugToolbarExtension
 from werkzeug.contrib.profiler import ProfilerMiddleware
 
-from chassis.views import CatAPI
-from chassis.views import api, cache
-from chassis.models import db
+from {{cookiecutter.app_name}}.views import CatAPI
+from {{cookiecutter.app_name}}.views import api, cache
+from {{cookiecutter.app_name}}.models import db
 
 
 def create_app(config={}):
-    app = Flask("chassis")
+    app = Flask("{{cookiecutter.app_name}}")
     app.config.from_envvar("FLASK_CONFIG")
     app.config.update(config)
 

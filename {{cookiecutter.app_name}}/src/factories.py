@@ -1,5 +1,5 @@
-from chassis.models import db
-from chassis import models
+from {{cookiecutter.app_name}}.models import db
+from {{cookiecutter.app_name}} import models
 
 from faker import Factory as Fake
 from factory.alchemy import SQLAlchemyModelFactory

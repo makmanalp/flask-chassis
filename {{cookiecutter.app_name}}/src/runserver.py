@@ -1,4 +1,4 @@
-from chassis import create_app
+from {{cookiecutter.app_name}} import create_app
 
 import sys
 

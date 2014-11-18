@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# chassis documentation build configuration file
+# {{cookiecutter.app_name_full}} documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its containing dir.
 
@@ -35,8 +35,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'chassis'
-copyright = u'2013, Mali Akmanalp, CustomMade Ventures, Corp.'
+project = u'{{cookiecutter.app_name_full}}'
+copyright = u'{{cookiecutter.year}}, {{cookiecutter.author}}, {{cookiecutter.organization}}.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -108,7 +108,7 @@ html_theme_path = ["_themes"]
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "_static/chassis.jpg"
+html_logo = "_static/logo.jpg"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -162,6 +162,6 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'chassisdoc'
+htmlhelp_basename = '{{cookiecutter.app_name}}doc'
 
 autodoc_member_order = 'bysource'

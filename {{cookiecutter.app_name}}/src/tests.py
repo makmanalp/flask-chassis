@@ -1,7 +1,7 @@
 from flask.ext.testing import TestCase
 
-from chassis import create_app
-from chassis.models import db
+from {{cookiecutter.app_name}} import create_app
+from {{cookiecutter.app_name}}.models import db
 import factories
 
 

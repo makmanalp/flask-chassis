@@ -1,4 +1,4 @@
-from chassis import create_app, models
+from {{cookiecutter.app_name}} import create_app, models
 import factories
 from flask.ext.script import Manager, Shell
 
