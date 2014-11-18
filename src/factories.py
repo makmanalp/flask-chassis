@@ -18,7 +18,7 @@ class Cat(SQLAlchemyModelFactory):
     FACTORY_FOR = models.Cat
     FACTORY_SESSION = db.session
 
-    id = factory.LazyAttribute(lambda x: faker.unixTime())
-    born_at = factory.LazyAttribute(lambda x: faker.unixTime())
+    id = factory.LazyAttribute(lambda x: faker.unix_time())
+    born_at = factory.LazyAttribute(lambda x: faker.unix_time())
 
-    name = factory.LazyAttribute(lambda x: faker.firstName())
+    name = factory.LazyAttribute(lambda x: faker.first_name())
