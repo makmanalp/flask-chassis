@@ -2,7 +2,9 @@ from {{cookiecutter.app_name}} import create_app, models
 import factories
 from flask.ext.script import Manager, Shell
 
+{% if cookiecutter.python_version != 3 %}
 from future import print_function
+{% endif %}
 
 app = create_app()
 manager = Manager(app)
