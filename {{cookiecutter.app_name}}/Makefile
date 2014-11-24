@@ -8,13 +8,18 @@ ACTIVATE:=$(ENVDIR)/bin/activate
 
 count=10
 
+{% if cookiecutter.python_version == 3 %}
+PYTHON_EXECUTABLE=python3
+VIRTUALENV_EXECUTABLE=pyvenv
+{% else %}
 PYTHON_EXECUTABLE=python
-VIRTUALENV_EXECUTABLE=virtualenv
+VIRTUALENV_EXECUTABLE=virtualenv --no-site-packages
+{% endif %}
 
 requirements = requirements.txt requirements-dev.txt
 virtualenv: $(ACTIVATE)
 $(ACTIVATE): $(requirements)
-	test -d $(ENVDIR) || $(VIRTUALENV_EXECUTABLE) --no-site-packages $(ENVDIR)
+	test -d $(ENVDIR) || $(VIRTUALENV_EXECUTABLE) $(ENVDIR)
 	for f in $?; do \
 		. $(ACTIVATE); pip install -r $$f; \
 	done

@@ -3,5 +3,6 @@
     "app_name_full": "Flask Chassis",
     "author": "Mali Akmanalp",
     "organization": "Home",
-    "year": "2014"
+    "year": "2014",
+    "python_version": 3
 }
