@@ -2,6 +2,8 @@ from {{cookiecutter.app_name}} import create_app, models
 import factories
 from flask.ext.script import Manager, Shell
 
+from future import print_function
+
 app = create_app()
 manager = Manager(app)
 
@@ -19,14 +21,14 @@ def dummy(n=10):
         raise Exception("Unsafe to generate dummy data while not in DEBUG.")
 
     ids = []
-    for x in xrange(0, int(n)):
+    for x in range(0, int(n)):
         m = factories.Cat()
         ids.append(m.id)
     models.db.session.commit()
 
-    print "Inserted these ids:"
+    print("Inserted these ids:")
     for x in ids:
-        print x
+        print(x)
 
 
 if __name__ == "__main__":
