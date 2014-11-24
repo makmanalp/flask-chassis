@@ -14,6 +14,9 @@ def create_app(config={}):
     app.config.from_envvar("FLASK_CONFIG")
     app.config.update(config)
 
+    #API Endpoints
+    api.add_resource(CatAPI, "/cats/<int:cat_id>")
+
     #External
     sentry.init_app(app)
     api.init_app(app)
@@ -21,9 +24,6 @@ def create_app(config={}):
 
     #Internal
     db.init_app(app)
-
-    #API Endpoints
-    api.add_resource(CatAPI, "/cats/<int:cat_id>")
 
     with app.app_context():
         db.create_all()
