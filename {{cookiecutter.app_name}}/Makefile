@@ -8,26 +8,29 @@ ACTIVATE:=$(ENVDIR)/bin/activate
 
 count=10
 
+PYTHON_EXECUTABLE=python
+VIRTUALENV_EXECUTABLE=virtualenv
+
 requirements = requirements.txt requirements-dev.txt
 virtualenv: $(ACTIVATE)
 $(ACTIVATE): $(requirements)
-	test -d $(ENVDIR) || virtualenv --no-site-packages $(ENVDIR)
+	test -d $(ENVDIR) || $(VIRTUALENV_EXECUTABLE) --no-site-packages $(ENVDIR)
 	for f in $?; do \
 		. $(ACTIVATE); pip install -r $$f; \
 	done
 	touch $(ACTIVATE)
 
 dev: virtualenv
-	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" python src/runserver.py
+	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" $(PYTHON_EXECUTABLE) src/runserver.py
 
 test: virtualenv
 	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" nosetests --config=nose.ini src/tests.py
 
 shell: virtualenv
-	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" python src/manage.py shell
+	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" $(PYTHON_EXECUTABLE) src/manage.py shell
 
 dummy: virtualenv
-	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" python src/manage.py dummy -n $(count)
+	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" $(PYTHON_EXECUTABLE) src/manage.py dummy -n $(count)
 
 docs: virtualenv
 	git submodule add git://github.com/kennethreitz/kr-sphinx-themes.git doc/_themes
