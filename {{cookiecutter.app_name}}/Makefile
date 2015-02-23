@@ -29,7 +29,7 @@ dev: virtualenv
 	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" $(PYTHON_EXECUTABLE) src/runserver.py
 
 test: virtualenv
-	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" nosetests --config=nose.ini src/tests.py
+	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" py.test --cov {{cookiecutter.app_name}} src/tests.py
 
 shell: virtualenv
 	. $(ACTIVATE); FLASK_CONFIG="../../conf/dev.py" $(PYTHON_EXECUTABLE) src/manage.py shell
